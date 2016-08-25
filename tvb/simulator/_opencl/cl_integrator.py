@@ -1,9 +1,9 @@
 import pyopencl
 import pyopencl.array
 import numpy
-from models import CLComponent, CLModel
+from .models import CLComponent, CLModel
 from ..integrators import HeunDeterministic, HeunStochastic, EulerDeterministic, EulerStochastic, Identity
-from util import *
+from .util import *
 
 grw = lambda arr, ctx: pyopencl.Buffer(ctx, pyopencl.mem_flags.COPY_HOST_PTR, hostbuf=arr)
 
@@ -42,7 +42,7 @@ class CLIntegrator(CLComponent):
 
         arrays = {'state': (n_states, n_nodes, n_mode), 'coupling': (1, n_nodes), 'deriv': (n_states, n_nodes, n_mode)}
 
-        for name, shape in arrays.items():
+        for name, shape in list(arrays.items()):
             self._arrays[name] = pyopencl.array.Array(self._queue, shape, 'f')
 
         pass

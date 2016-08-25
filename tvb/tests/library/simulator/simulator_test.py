@@ -64,8 +64,8 @@ sens_meg = sensors.SensorsMEG(load_default=True)
 sens_eeg = sensors.SensorsEEG(load_default=True)
 AVAILABLE_MODELS = get_traited_subclasses(models.Model)
 AVAILABLE_METHODS = get_traited_subclasses(integrators.Integrator)
-MODEL_CLASSES = AVAILABLE_MODELS.values()
-METHOD_NAMES = AVAILABLE_METHODS.keys()
+MODEL_CLASSES = list(AVAILABLE_MODELS.values())
+METHOD_NAMES = list(AVAILABLE_METHODS.keys())
 METHOD_NAMES.append('RungeKutta4thOrderDeterministic')
 
 
