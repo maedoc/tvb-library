@@ -44,7 +44,7 @@ import json
 from tvb.basic.logger.builder import get_logger
 from tvb.basic.traits.util import get, str_class_name, multiline_math_directives_to_matjax
 from tvb.basic.traits.core import KWARG_AVOID_SUBCLASSES, TYPE_REGISTER, KWARG_FILTERS_UI, KWARG_FILTERS_BACKEND
-import itree_model as itr
+from . import itree_model as itr
 LOG = get_logger(__name__)
 
 INTERFACE_ATTRIBUTES_ONLY = "attributes-only"

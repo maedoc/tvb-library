@@ -74,7 +74,7 @@ class Model(core.Type):
         )
         namespace = {'numpy': numpy}
         LOG.debug('building observer with code:\n%s', code)
-        exec code in namespace
+        exec(code, namespace)
         self.observe = namespace['observe']
         self.observe.code = code
 

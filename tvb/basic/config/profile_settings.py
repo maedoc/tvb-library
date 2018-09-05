@@ -35,6 +35,7 @@ Prepare TVB settings to be grouped under various profile classes.
 """
 import os
 import sys
+import six
 import importlib
 from tvb.basic.config import stored
 from tvb.basic.config.environment import Environment
@@ -65,7 +66,7 @@ class BaseSettingsProfile(object):
         self.manager = stored.SettingsManager(self.TVB_CONFIG_FILE)
 
         ## Actual storage of all TVB related files
-        self.TVB_STORAGE = self.manager.get_attribute(stored.KEY_STORAGE, self.FIRST_RUN_STORAGE, unicode)
+        self.TVB_STORAGE = self.manager.get_attribute(stored.KEY_STORAGE, self.FIRST_RUN_STORAGE, six.text_type)
         self.TVB_LOG_FOLDER = os.path.join(self.TVB_STORAGE, "logs")
         self.TVB_TEMP_FOLDER = os.path.join(self.TVB_STORAGE, "TEMP")
         self.TVB_PATH = self.manager.get_attribute(stored.KEY_TVB_PATH, '')
@@ -81,7 +82,7 @@ class BaseSettingsProfile(object):
             self.EXTERNALS_FOLDER_PARENT = os.path.dirname(self.EXTERNALS_FOLDER_PARENT)
 
         # The path to the matlab executable (if existent). Otherwise just return an empty string.
-        value = self.manager.get_attribute(stored.KEY_MATLAB_EXECUTABLE, '', str) or ''
+        value = self.manager.get_attribute(stored.KEY_MATLAB_EXECUTABLE, '', six.text_type) or ''
         if value == 'None':
             value = ''
         self.MATLAB_EXECUTABLE = value

@@ -113,12 +113,11 @@ Suggested reading is `Unifying Types and Classes`_ and th `Python data model`_.
     http://www.python.org/download/releases/2.2.3/descrintro/
 .. _Python data model: http://docs.python.org/reference/datamodel.html
 
-.. moduleauthor:: Marmaduke Woodman <mw@eml.cc>
+.. moduleauthor:: Marmaduke Woodman <marmaduke.woodman@univ-amu.fr>
 
 """
 
-import core
-import traited_interface, traited_interface2
+from . import core, traited_interface, traited_interface2
 from tvb.basic.profile import TvbProfile
 
 # Add interfaces based on configured parameter on classes

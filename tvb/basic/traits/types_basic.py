@@ -43,11 +43,12 @@ Important:
 
 
 .. moduleauthor:: Lia Domide <lia.domide@codemart.ro>
-.. moduleauthor:: marmaduke <duke@eml.cc>
+.. moduleauthor:: Marmaduke Woodman <marmaduke.woodman@univ-amu.fr>
 .. moduleauthor:: Paula Sanz-Leon <paula.sanz-leon@univ-amu.fr>
 """
 
 import json
+import six
 import numpy
 from decimal import Decimal
 import tvb.basic.traits.core as core
@@ -60,7 +61,7 @@ class String(core.Type):
     """
     Traits type that wraps a Python string.
     """
-    wraps = (str, unicode)
+    wraps = six.string_types
 
 
 
@@ -76,7 +77,7 @@ class Integer(core.Type):
     """
     Traits type that wraps Numpy's int32.
     """
-    wraps = (int, long)
+    wraps = six.integer_types
 
 
 
